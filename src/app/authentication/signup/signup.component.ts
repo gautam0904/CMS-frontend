@@ -31,7 +31,7 @@ export class SignupComponent  {
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
     
-      console.log(file.size)
+      console.log(file)
     }
   }
 

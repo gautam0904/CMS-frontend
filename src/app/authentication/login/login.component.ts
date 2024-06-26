@@ -29,12 +29,13 @@ export class LoginComponent implements OnInit {
           localStorage.clear();
           localStorage.setItem('token',resdata.data.token);
           localStorage.setItem('user',JSON.stringify(resdata.data.user));
+          // localStorage.setItem('user',JSON.stringify(resdata.data.user));
           this.loginform.reset();
           this.router.navigate(['/'])
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: resdata.message,
+            text: resdata.message || "something went wrong",
           });
         },
         error : (res) => {

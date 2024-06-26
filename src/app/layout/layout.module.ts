@@ -10,6 +10,7 @@ import { AvatarModule } from 'primeng/avatar'
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DropdownModule } from 'primeng/dropdown';
 import { MegaMenuModule } from 'primeng/megamenu';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MegaMenuModule } from 'primeng/megamenu';
     AvatarModule,
     PanelMenuModule,
     DropdownModule,
-    MegaMenuModule
+    MegaMenuModule,
+    SharedModule
   ]
 })
 export class LayoutModule { }
