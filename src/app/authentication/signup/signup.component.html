@@ -1,0 +1,30 @@
+<div class="container full-height d-flex justify-content-center align-items-center">
+    <div class="col-md-6 w-25 login-form">
+        <div class="main">
+            <div class="register">
+                <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                    <label for="chk" aria-hidden="true">Register</label>
+                    <input class="input" for="name" type="text" formControlName="name" placeholder="Name" required="">
+
+                    <input class="input" for="email" type="email" formControlName="email" placeholder="Email" required="">
+
+                    <input class="input" for="password" type="password" formControlName="password" placeholder="Password" required="">
+
+                    <input type="file" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic" required>
+
+                    <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedRole" formControlName="role" placeholder="selecte Role" aria-label=".form-select-lg example">
+                        <option value="" selected="true" disabled>Select Role</option>
+                        <option value="user">User</option>
+                        <option value="author">Auther</option>
+                    </select>
+
+                    <a routerLink="/auth">Already have an account</a>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
