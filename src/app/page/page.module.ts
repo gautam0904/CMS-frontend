@@ -6,6 +6,7 @@ import { PostComponent } from './post/post.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     PostComponent,
     PostCreateComponent,
+    UserComponent,
     
   ],
   imports: [

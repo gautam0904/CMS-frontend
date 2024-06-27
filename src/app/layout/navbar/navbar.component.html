@@ -16,16 +16,24 @@
                     <a class="nav-link active" aria-current="page" routerLink="/">Home <i class="pi pi-home"></i></a>
 
                 </li>
-                <li class="nav-item menu">
-                    <a class="nav-link active menu" aria-current="page" href="#">Books <i class="pi pi-book menu"></i></a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink="/addPost">Add post 
                         <app-create-icon></app-create-icon>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/category">Categories <i class="pi pi-database"></i></a>
+                <li class="nav-item menu" *ngIf="Role == 'user'">
+                    <a class="nav-link active menu" aria-current="page" href="#">Make your channel <p-dropdown>
+                        <ng-template pTemplate="dropdownicon">
+                            <img class="image" style="height: 20px" alt="dropdown icon" src="../../../assets/update.png">
+                        </ng-template>
+                    </p-dropdown></a>
+                </li>
+                <li class="nav-item"  *ngIf="Role != 'user'">
+                    <a class="nav-link active" aria-current="page" routerLink="/category">My post <p-dropdown>
+                        <ng-template pTemplate="dropdownicon">
+                            <img class="image" style="height: 20px" alt="dropdown icon" src="../../../assets/mypost.png">
+                        </ng-template>
+                    </p-dropdown></a>
                 </li>
             </ul>
             <div class="d-flex align-items-center fs-3 me-3" >{{userName}}  </div>
