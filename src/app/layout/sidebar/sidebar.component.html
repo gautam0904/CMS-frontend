@@ -1,20 +1,28 @@
-<div class="flex justify-content-center py-5 border border-secondary" [style]="{'height': '100vh'}">
-    <div>
-        <i class="pi pi-fw pi-video"></i> videos
+<div class="flex justify-content-center py-5 ps-3 border border-top-0 border-secondary full-height" >
+    <div class="d-flex align-items-center m-2 menu">
+        <i class="pi pi-fw pi-user"></i> Profile 
     </div>
-    <div>
-        <i class="pi pi-fw pi-users"></i> users
+    <div class="d-flex align-items-center m-2 menu">
+        <i class="pi pi-fw pi-video"></i> Videos
     </div>
-    <div>
-        <i class="pi pi-fw pi-image"></i> image
+    <div class="d-flex align-items-center m-2 menu">
+        <i class="pi pi-fw pi-users"></i> Users
     </div>
-    <div>
-        <i class="pi pi-fw pi-image"></i> pages
+    <div class="d-flex align-items-center m-2 menu">
+        <i class="pi pi-fw pi-image"></i> Image
     </div>
-    <div>
-        <i class="pi pi-fw pi-image"></i> article
+    <div class="d-flex align-items-center m-2 menu">
+        <i><p-dropdown>
+            <ng-template pTemplate="dropdownicon">
+                <img style="height: 20px" class="image" alt="dropdown icon" src="../../../assets/page.png">
+            </ng-template>
+        </p-dropdown></i> Pages
     </div>
-    <div>
-        <i class="pi pi-fw pi-image"></i> pages
+    <div class="d-flex align-items-center m-2 menu">
+        <i><p-dropdown>
+            <ng-template pTemplate="dropdownicon">
+                <img style="height: 20px" class="image" alt="dropdown icon" src="../../../assets/article.png">
+            </ng-template>
+        </p-dropdown></i> Article
     </div>
 </div>

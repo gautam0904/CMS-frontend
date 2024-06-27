@@ -24,9 +24,10 @@ export class BaseurlInterceptor implements HttpInterceptor {
     const modifiedRequest = request.clone({
       url: baseurl + request.url,
       setHeaders: {
-        Authorization: `Bearer ${accesstoken}`
+        token : `Bearer ${accesstoken}`
       }
-    })
+    });
+    
     return next.handle(modifiedRequest);
   }
 }

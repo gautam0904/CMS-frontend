@@ -27,7 +27,4 @@ export class AuthService {
     return this.http.post('/user/signup' ,formData )
   }
 
-
-  
-
 }

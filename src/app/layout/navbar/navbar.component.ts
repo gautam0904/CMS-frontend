@@ -16,10 +16,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('user') as string);
     this.userName = user.name;
-    this.imageURL = user.profipic
+    this.imageURL = user.profilepic
+    
   }
   logout() {
     localStorage.clear();
-    this.router.navigate(['auth/login']);
+    this.router.navigate(['auth']);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -7,6 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class InputComponent {
 @Input()field!: string;
-
-
+@Input()inputType! : string;
+myForm: FormGroup;
+constructor() {
+  this.myForm = new FormGroup({
+    field: new FormControl('', [])
+  });
+}
 }

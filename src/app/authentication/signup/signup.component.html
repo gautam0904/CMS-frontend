@@ -1,5 +1,9 @@
 <div class="container full-height d-flex justify-content-center align-items-center">
-    <div class="col-md-6 w-25 login-form">
+    <div *ngIf="loading">
+        <app-loading></app-loading>
+    </div>
+   
+    <div class="col-md-6 w-25 login-form" *ngIf="!loading">
         <div class="main">
             <div class="register">
                 <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
@@ -9,13 +13,12 @@
                     <input class="input" for="email" type="email" formControlName="email" placeholder="Email" required="">
 
                     <input class="input" for="password" type="password" formControlName="password" placeholder="Password" required="">
-
-                    <input type="file" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic" required>
+                    <input type="file" class="form-control input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic" required>
 
                     <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedRole" formControlName="role" placeholder="selecte Role" aria-label=".form-select-lg example">
                         <option value="" selected="true" disabled>Select Role</option>
                         <option value="user">User</option>
-                        <option value="author">Auther</option>
+                        <option value="creater">Creater</option>
                     </select>
 
                     <a routerLink="/auth">Already have an account</a>

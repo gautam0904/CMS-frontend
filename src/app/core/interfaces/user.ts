@@ -3,6 +3,11 @@ export interface IUser {
     email: string;
     password: string;
     profilepic : string;
-    peofilepicid : string;
     role: string;
+}
+
+export interface Icontent {
+    title: string;
+    description : string;
+    midea : string;
 }
