@@ -7,6 +7,11 @@ import { HorizontalComponent } from './layout/horizontal/horizontal.component';
 const routes: Routes = [
   {
     path : '',
+    redirectTo : '/page',
+    pathMatch : 'full'
+  },
+  {
+    path : 'page',
     component : HorizontalComponent,
     loadChildren: () => import('./page/page.module').then(m => m.PageModule),
     canActivate : [authGuard]

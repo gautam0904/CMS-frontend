@@ -6,6 +6,13 @@ import { PostComponent } from './post/post.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { MyContentComponent } from './my-content/my-content.component';
+import { VideosComponent } from './videos/videos.component';
+import { UsersComponent } from './users/users.component';
+import { ImagesComponent } from './images/images.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { PagesComponent } from './pages/pages.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -13,6 +20,13 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     PostComponent,
     PostCreateComponent,
+    MyContentComponent,
+    VideosComponent,
+    UsersComponent,
+    ImagesComponent,
+    ArticlesComponent,
+    PagesComponent,
+    ProfileComponent,
     
   ],
   imports: [

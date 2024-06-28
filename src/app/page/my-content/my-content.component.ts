@@ -1,23 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Icontent } from 'src/app/core/interfaces/user';
 import { ContentService } from 'src/app/core/services/content.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-my-content',
+  templateUrl: './my-content.component.html',
+  styleUrls: ['./my-content.component.scss']
 })
-export class PostComponent implements OnInit {
-
+export class MyContentComponent implements OnInit {
+  id!: string;
   posts !: any;
 
   constructor(private content : ContentService ){}
+  ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem('user') as string)
+    this.id = user._id
 
-ngOnInit(): void {
-
-  
-  this.content.getpost().subscribe({
+  this.content.getpost(this.id).subscribe({
     next : (resdata : any) => {
       this.posts = resdata.data as Icontent;
     },
@@ -30,5 +30,4 @@ ngOnInit(): void {
     }
   })
 }
-
 }

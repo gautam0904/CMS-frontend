@@ -1,0 +1,17 @@
+<div *ngFor="let post of posts">
+    <div class="card post"   *ngIf="post.type == 'video/mp4'">
+        <div class="image">
+            <video class="w-100 mt-3" controls>
+                <source class="image " src="{{post.midea}}" type="video/mp4">
+              </video>
+        </div>
+    
+        <div class="title fs-4 fw-5">
+            {{post.title}}
+        </div>
+        <div class="description">
+            {{post.description}}
+        </div>
+    </div>
+    
+</div>

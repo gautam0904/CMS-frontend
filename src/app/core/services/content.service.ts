@@ -19,7 +19,10 @@ export class ContentService {
     return this.http.post('/content/create' , formData)
   }
 
-  getpost (){
-    return this.http.get('/content/get')
+  getpost (Id=''){
+    console.log(Id);
+    
+    return this.http.get('/content/get',{params : {id : Id}})
   }
+
 }

@@ -1,0 +1,33 @@
+import { Component } from '@angular/core';
+import { Icontent } from 'src/app/core/interfaces/user';
+import { ContentService } from 'src/app/core/services/content.service';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-videos',
+  templateUrl: './videos.component.html',
+  styleUrls: ['./videos.component.scss']
+})
+export class VideosComponent {
+
+  constructor(private content : ContentService){}
+
+  posts !: Icontent[]
+
+  ngOnInit(): void {
+
+  
+    this.content.getpost().subscribe({
+      next : (resdata : any) => {
+        this.posts = resdata.data as Icontent[];
+      },
+      error : (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.error.message,
+        })
+      }
+    })
+  }
+}

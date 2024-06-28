@@ -4,4 +4,7 @@
 
 .full-height{
     height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }

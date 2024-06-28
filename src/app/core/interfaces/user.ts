@@ -10,4 +10,5 @@ export interface Icontent {
     title: string;
     description : string;
     midea : string;
+    type : string;
 }

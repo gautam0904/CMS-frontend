@@ -29,18 +29,27 @@ export class LoginComponent implements OnInit {
       this.author.login(this.loginform.value).subscribe({
         next : (resdata : any) => {
           this.loading = false
-          console.log(resdata);
-          localStorage.clear();
-          localStorage.setItem('token',resdata.data.token);
-          localStorage.setItem('user',JSON.stringify(resdata.data.user));
-          // localStorage.setItem('user',JSON.stringify(resdata.data.user));
-          this.loginform.reset();
-          this.router.navigate(['/'])
-          Swal.fire({          
-            icon: "success",
-            title: "Oops...",
-            text: resdata.message || "something went wrong",
-          });
+          if (resdata.data) {
+            Swal.fire({          
+              icon: "success",
+              title: "Oops...",
+              text: resdata.message || "something went wrong",
+            });
+            localStorage.clear();
+            localStorage.setItem('token',resdata.data.token);
+            localStorage.setItem('user',JSON.stringify(resdata.data.user));
+            // localStorage.setItem('user',JSON.stringify(resdata.data.user));
+            this.loginform.reset();
+            this.router.navigate(['/'])
+          }
+          else{
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Invalid email or password",
+            });
+            this.loginform.reset();
+          }
         },
         error : (res) => {
           this.loading =false
