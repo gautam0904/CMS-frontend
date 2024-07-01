@@ -8,6 +8,8 @@ import { VideosComponent } from './videos/videos.component';
 import { ImagesComponent } from './images/images.component';
 import { PagesComponent } from './pages/pages.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { UsersComponent } from './users/users.component';
+import { AnaliticsComponent } from './analitics/analitics.component';
 
 const routes: Routes = [
   {
@@ -32,7 +34,7 @@ const routes: Routes = [
   },
   {
     path : 'users',
-    component : VideosComponent
+    component : UsersComponent
   },
   {
     path : 'images',
@@ -46,6 +48,10 @@ const routes: Routes = [
     path : 'articles',
     component : ArticlesComponent
   },
+  {
+    path : 'analitics',
+    component : AnaliticsComponent
+  }
   
 ];
 

@@ -19,6 +19,9 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     ToastModule,
     SharedModule
+  ],
+  exports:[
+    SignupComponent
   ]
 })
 export class AuthenticationModule { }

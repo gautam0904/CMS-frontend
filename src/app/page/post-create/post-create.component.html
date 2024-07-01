@@ -2,10 +2,11 @@
     <div *ngIf="loading">
         <app-loading></app-loading>
     </div>
-    <div *ngIf="!loading" class="col-md-6 w-25 login-form">
+    <div *ngIf="!loading" [ngClass]="{'login-form': isupdate}" [ngClass]="{'col-md-6 w-25 login-form': isupdate}">
         <div class="main">
             <div class="login">
                 <form class="form" [formGroup]="createpost" (ngSubmit)="onsubmit()">
+                    <button *ngIf="isupdate" type="button" class="ms-auto mt-3 border-0 rounded" data-bs-dismiss="modal" aria-label="Close"><i class="pi pi-times"></i></button>
                     <label for="chk" aria-hidden="true">Post</label>
                     <input class="input" type="text" formControlName="title" placeholder="Title" required="">
 
@@ -13,7 +14,7 @@
 
                     <input type="file" class="form-control input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"  (change)="onFileSelected($event)" accept="image/*" formControlName="midea" required>
                     
-                    <button type="submit">Add Post</button>
+                    <button class="addpost" type="submit" aria-label="Close">Add Post</button>
                 </form>
             </div>
         </div>

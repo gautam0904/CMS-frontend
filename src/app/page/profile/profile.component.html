@@ -1,6 +1,6 @@
 <div class="container full-height d-flex justify-content-center align-items-center">
-    <div class="col-md-6 w-50 login-form">
-        <img class="profilepic" src="{{imageURL}}" alt="">
+    <div class="col-md-6 w-50 profile login-form p-5">
+        <img class="profilepic mx-auto" src="{{imageURL}}" alt="">
 
         <div>
             <h3>profile</h3>
@@ -10,9 +10,23 @@
             <p>Email: {{profile.email}}</p>
         </div>
 
-        <div>
-            <button class="btn btn-outline border-primary text-primary"><span class="pi pi-pencil"></span> Edit </button>
+        <div class="action">
+            <button type="button" class="btn action-btn btn btn-outline" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="edit(profile)"><i class="pi  pi-pencil"></i> Edit</button>
+            <!-- Modal -->
+            <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content bg-transparent border-0">
+        
+                        <div class="modal-body">
+                            <app-signup [isedit]="updated" [profile]="profile"></app-signup>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
+

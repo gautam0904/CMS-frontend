@@ -51,7 +51,7 @@ label {
 }
 
 /*Button*/
-.form button {
+.addpost{
   width: 85%;
   height: 40px;
   margin: 12px auto 10%;
@@ -65,6 +65,6 @@ label {
   transition: .2s ease-in;
 }
 
-.form button:hover {
+.addpost:hover {
   background-color: #6d44b8;
 }

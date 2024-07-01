@@ -3,17 +3,37 @@
         <div class="image " *ngIf="post.type == 'video/mp4'">
             <video class="w-100 mt-3" controls>
                 <source class="image " src="{{post.midea}}" type="video/mp4">
-              </video>
+            </video>
         </div>
         <div class="image" *ngIf="post.type == 'image/jpeg' || post.type=='image/png'">
             <img class="image" src="{{post.midea}}" alt="">
         </div>
-        
+
         <div class="title fs-4 fw-5">
             {{post.title}}
         </div>
         <div class="description">
             {{post.description}}
+        </div>
+
+        <div class="action">
+            <button type="button" class="btn action-btn text-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="edit(post)"><i class="pi  pi-pencil"></i> Edit</button>
+            <!-- Modal -->
+            <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content bg-transparent border-0">
+
+                        <div class="modal-body">
+                            <app-post-create [isupdate]="updated"></app-post-create>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn action-btn text-danger" (click)="delete(post)"><i class="pi pi-trash"></i>
+                Delete</button>
         </div>
     </div>
 

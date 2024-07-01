@@ -14,35 +14,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item menu">
                     <a class="nav-link active" aria-current="page" routerLink="/">Home <i class="pi pi-home"></i></a>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3b0fb3721c57bfed839bd0db3c8769530657dc44
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active menu" aria-current="page" routerLink="/page/addPost">Add content <i class="pi pi-file-plus menu"></i></a>
                 </li>
-<<<<<<< HEAD
                 <li class="nav-item menu" *ngIf="role == 'user'">
                     <a class="nav-link active menu" aria-current="page" href="#">Make your channel <i class="pi pi-youtube menu"></i></a>
                 </li>
                 <li class="nav-item menu" *ngIf="role != 'user'">
                     <a class="nav-link active menu" aria-current="page" routerLink="/page/myContent">My content <i class="pi pi-briefcase menu"></i></a>
-=======
-                <li class="nav-item menu" *ngIf="Role == 'user'">
-                    <a class="nav-link active menu" aria-current="page" href="#">Make your channel <p-dropdown>
-                        <ng-template pTemplate="dropdownicon">
-                            <img class="image" style="height: 20px" alt="dropdown icon" src="../../../assets/update.png">
-                        </ng-template>
-                    </p-dropdown></a>
-                </li>
-                <li class="nav-item"  *ngIf="Role != 'user'">
-                    <a class="nav-link active" aria-current="page" routerLink="/category">My post <p-dropdown>
-                        <ng-template pTemplate="dropdownicon">
-                            <img class="image" style="height: 20px" alt="dropdown icon" src="../../../assets/mypost.png">
-                        </ng-template>
-                    </p-dropdown></a>
->>>>>>> 3b0fb3721c57bfed839bd0db3c8769530657dc44
                 </li>
             </ul>
             <div class="d-flex align-items-center fs-3 me-3" >{{userName}}  </div>

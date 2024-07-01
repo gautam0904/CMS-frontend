@@ -19,10 +19,12 @@ export class ContentService {
     return this.http.post('/content/create' , formData)
   }
 
-  getpost (Id=''){
-    console.log(Id);
-    
+  getpost (Id=''){   
     return this.http.get('/content/get',{params : {id : Id}})
+  }
+
+  deletePost(id : string){
+    return this.http.delete('/content/delete' , {params : {id : id}})
   }
 
 }

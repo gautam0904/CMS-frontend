@@ -21,3 +21,12 @@
   .page{
     margin-top: 116px;
   }
+
+@media (max-width: 992px) {
+  .sidebar{
+    background-color: transparent;
+  }
+  .content{
+    padding-left: 60px;
+  }
+}

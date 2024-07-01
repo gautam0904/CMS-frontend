@@ -11,6 +11,8 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { DropdownModule } from 'primeng/dropdown';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { SharedModule } from '../shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { SharedModule } from '../shared/shared.module';
     PanelMenuModule,
     DropdownModule,
     MegaMenuModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ]
 })
 export class LayoutModule { }

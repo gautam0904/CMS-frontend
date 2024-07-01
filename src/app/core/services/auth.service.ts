@@ -27,4 +27,8 @@ export class AuthService {
     return this.http.post('/user/signup' ,formData )
   }
 
+  getAllusers(){
+    return this.http.get('/user/getAll')
+  }
+
 }

@@ -1,11 +1,12 @@
-.post{
+.post {
     border-radius: 25px;
     margin: 10px;
     background-color: #9684b9;
-    box-shadow:inset 0px 0px 20px 5px snow;;
+    box-shadow: inset 0px 0px 20px 5px snow;
+    ;
 }
 
-.image{
+.image {
     width: 100%;
     aspect-ratio: 1/1;
     margin-left: auto;
@@ -13,6 +14,16 @@
     margin-top: 12px;
 }
 
-.description , .title{
+.description,
+.title {
     padding: 20px;
+}
+
+
+.action-btn {
+    border-radius: 10px;
+    margin:0px 0px 12px 12px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow: 12px 12px 24px #c1c1c1,
+        -12px -12px 24px #ffffff;
 }

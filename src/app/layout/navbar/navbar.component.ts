@@ -12,22 +12,13 @@ export class NavbarComponent implements OnInit {
 
   imageURL!: string
   userName !: string
-<<<<<<< HEAD
   role!: string
-=======
-  Role!:string
->>>>>>> 3b0fb3721c57bfed839bd0db3c8769530657dc44
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('user') as string);
     this.userName = user.name;
     this.imageURL = user.profilepic
-<<<<<<< HEAD
     this.role = user.role
-    console.log(this.role);
-=======
-    this.Role = user.role
->>>>>>> 3b0fb3721c57bfed839bd0db3c8769530657dc44
     
   }
   logout() {

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContentService } from 'src/app/core/services/content.service';
+import { UpdateContentService } from 'src/app/core/update-content.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,12 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./post-create.component.scss']
 })
 export class PostCreateComponent implements OnInit {
-
+  @Input()isupdate = false;
   createpost !: FormGroup;
   selectedFile!:File;
   loading : boolean = false;
 
-  constructor(private fb : FormBuilder , private post : ContentService , private router : Router ) {}
+  constructor(private fb : FormBuilder , private post : ContentService , private router : Router , private ud : UpdateContentService) {}
 
   ngOnInit(): void {
     this.createpost = this.fb.group({
@@ -25,12 +26,28 @@ export class PostCreateComponent implements OnInit {
     })
   }
 
+  ngAfterViewChecked(){
+    if (this.isupdate) {
+      this.setInitialValues();
+    }
+  }
+
+
+  setInitialValues() {
+    // Example of setting initial values
+    const newvalues = this.ud.dynamicForm
+
+    this.createpost.patchValue({
+     title :newvalues.title,
+      description : newvalues.description
+    });
+    this.ud.deleteData();
+  }
+
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
-    
-      console.log(file)
     }
   }
 
@@ -43,7 +60,8 @@ export class PostCreateComponent implements OnInit {
           icon: "success",
           title: "Oops...",
           text: resdata.message,
-        })
+        });
+        this.ud.setData(null);
         this.router.navigate(['/'])
       },
       error : (res : any) => {

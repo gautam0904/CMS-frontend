@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IUser } from 'src/app/core/interfaces/user';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
+  users !: IUser[];
 
+  constructor(private user : AuthService) {}
+
+  ngOnInit(): void {
+    this.user.getAllusers().subscribe({
+      next : (responseData: any) =>{
+        this.users = responseData.users as IUser[];
+      }
+    });
+  }
 }
