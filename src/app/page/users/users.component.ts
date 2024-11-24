@@ -15,7 +15,7 @@ export class UsersComponent {
   ngOnInit(): void {
     this.user.getAllusers().subscribe({
       next : (responseData: any) =>{
-        this.users = responseData.users as IUser[];
+        this.users = responseData.data as IUser[];
       }
     });
   }
