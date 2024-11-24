@@ -36,7 +36,7 @@ export class PostCreateComponent implements OnInit {
   setInitialValues() {
     // Example of setting initial values
     const newvalues = this.ud.dynamicForm
-
+    
     this.createpost.patchValue({
      title :newvalues.title,
       description : newvalues.description
@@ -53,7 +53,9 @@ export class PostCreateComponent implements OnInit {
 
   onsubmit(){
     this.loading = true
-    this.post.createpost(this.createpost.value ,this.selectedFile ).subscribe({
+    const apiPost = this.isupdate ? this.post.updatePost(this.createpost.value ,this.selectedFile) : this.post.createpost(this.createpost.value ,this.selectedFile ) 
+    
+    apiPost.subscribe({
       next : (resdata : any) => {
         this.loading = false;
         Swal.fire({

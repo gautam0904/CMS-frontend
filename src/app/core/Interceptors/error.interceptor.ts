@@ -21,6 +21,9 @@ export class ErrorInterceptor implements HttpInterceptor {
 
 
         if (error instanceof HttpErrorResponse) {
+          if(!error.error.message){
+            error.error.message = 'Something went wrong!!!!!!!!!!'
+          }
 
           if (error.status === 401) {
             this.router.navigate(['/auth']);

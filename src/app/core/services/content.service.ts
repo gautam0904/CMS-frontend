@@ -9,11 +9,11 @@ export class ContentService {
 
   constructor(private http : HttpClient) { }
 
-  createpost(posData : Icontent , file : File ){
+  createpost(postData : Icontent , file : File ){
 
     const formData = new FormData();
-    formData.append('title', posData.title);
-    formData.append('description', posData.description);
+    formData.append('title', postData.title);
+    formData.append('description', postData.description);
     formData.append('midea', file, file.name);
 
     return this.http.post('/content/create' , formData)
@@ -25,6 +25,20 @@ export class ContentService {
 
   deletePost(id : string){
     return this.http.delete('/content/delete' , {params : {id : id}})
+  }
+
+  updatePost(postData : Icontent , file : File | null = null){
+    let formData;
+    if (file) {
+      formData = new FormData();
+      formData.append('title', postData.title);
+      formData.append('description', postData.description);
+      formData.append('midea', file, file.name);
+    }
+    else{
+      formData = postData
+    }
+    return this.http.put('/content/update' , formData)
   }
 
 }
