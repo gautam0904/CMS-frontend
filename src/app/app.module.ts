@@ -8,6 +8,7 @@ import { BaseurlInterceptor } from './core/Interceptors/baseurl.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { LayoutModule } from './layout/layout.module';
+import { ErrorInterceptor } from './core/Interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,11 @@ import { LayoutModule } from './layout/layout.module';
     {
       provide : HTTP_INTERCEPTORS,
       useClass : BaseurlInterceptor,
+      multi : true
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : ErrorInterceptor,
       multi : true
     }
   ],
