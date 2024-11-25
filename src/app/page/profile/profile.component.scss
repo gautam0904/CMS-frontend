@@ -1,31 +1,32 @@
-.profilepic{
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
+.profilepic {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
 }
+
 .profile {
-    border-radius: 10px;
-    margin:0px 0px 12px 12px;
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
-    box-shadow: 12px 12px 24px #c1c1c1,
-        -12px -12px 24px #ffffff;
+  border-radius: 10px;
+  margin: 0px 0px 12px 12px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 12px 12px 24px #c1c1c1,
+    -12px -12px 24px #ffffff;
 }
 
 
 
 .action-btn {
-    border: 2px solid #573b8a;
-    background-color: #573b8a;
-    color: white;
-    border-radius: 0.9em;
-    padding: 0.8em 1.2em 0.8em 1em;
-    transition: all ease-in-out 0.2s;
-    font-size: 16px;
-   }
-   
+  border: 2px solid #573b8a;
+  background-color: #573b8a;
+  color: white;
+  border-radius: 0.9em;
+  padding: 0.8em 1.2em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+}
 
-   
-   .action-btn:hover {
-    background-color: #6d44b8;
-   }
+
+
+.action-btn:hover {
+  background-color: #6d44b8;
+}

@@ -49,7 +49,7 @@ export class MyContentComponent implements OnInit {
   }
 
   edit(post: Icontent) {
-    this.updated=true;
+    this.updated = true;
     this.ud.setData(post)
   }
 
@@ -88,7 +88,7 @@ export class MyContentComponent implements OnInit {
             })
           }
         })
-        
+
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {
@@ -99,6 +99,6 @@ export class MyContentComponent implements OnInit {
         });
       }
     });
-    
+
   }
 }

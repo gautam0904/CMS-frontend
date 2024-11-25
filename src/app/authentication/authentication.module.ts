@@ -20,7 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     ToastModule,
     SharedModule
   ],
-  exports:[
+  exports: [
     SignupComponent
   ]
 })

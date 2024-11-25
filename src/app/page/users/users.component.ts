@@ -10,11 +10,11 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class UsersComponent {
   users !: IUser[];
 
-  constructor(private user : AuthService) {}
+  constructor(private user: AuthService) { }
 
   ngOnInit(): void {
     this.user.getAllusers().subscribe({
-      next : (responseData: any) =>{
+      next: (responseData: any) => {
         this.users = responseData.data as IUser[];
       }
     });

@@ -11,22 +11,22 @@ import Swal from 'sweetalert2';
   styleUrls: ['./post-create.component.scss']
 })
 export class PostCreateComponent implements OnInit {
-  @Input()isupdate = false;
+  @Input() isupdate = false;
   createpost !: FormGroup;
-  selectedFile!:File;
-  loading : boolean = false;
+  selectedFile!: File;
+  loading: boolean = false;
 
-  constructor(private fb : FormBuilder , private post : ContentService , private router : Router , private ud : UpdateContentService) {}
+  constructor(private fb: FormBuilder, private post: ContentService, private router: Router, private ud: UpdateContentService) { }
 
   ngOnInit(): void {
     this.createpost = this.fb.group({
-      title : ['' , Validators.required],
-      description : ['' , Validators.required],
-      midea : ['' , Validators.required],
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      midea: ['', Validators.required],
     })
   }
 
-  ngAfterViewChecked(){
+  ngAfterViewChecked() {
     if (this.isupdate) {
       this.setInitialValues();
     }
@@ -36,10 +36,10 @@ export class PostCreateComponent implements OnInit {
   setInitialValues() {
     // Example of setting initial values
     const newvalues = this.ud.dynamicForm
-    
+
     this.createpost.patchValue({
-     title :newvalues.title,
-      description : newvalues.description
+      title: newvalues.title,
+      description: newvalues.description
     });
     this.ud.deleteData();
   }
@@ -51,12 +51,12 @@ export class PostCreateComponent implements OnInit {
     }
   }
 
-  onsubmit(){
+  onsubmit() {
     this.loading = true
-    const apiPost = this.isupdate ? this.post.updatePost(this.createpost.value ,this.selectedFile) : this.post.createpost(this.createpost.value ,this.selectedFile ) 
-    
+    const apiPost = this.isupdate ? this.post.updatePost(this.createpost.value, this.selectedFile) : this.post.createpost(this.createpost.value, this.selectedFile)
+
     apiPost.subscribe({
-      next : (resdata : any) => {
+      next: (resdata: any) => {
         this.loading = false;
         Swal.fire({
           icon: "success",
@@ -66,7 +66,7 @@ export class PostCreateComponent implements OnInit {
         this.ud.setData(null);
         this.router.navigate(['/'])
       },
-      error : (res : any) => {
+      error: (res: any) => {
         this.loading = false;
         Swal.fire({
           icon: "error",

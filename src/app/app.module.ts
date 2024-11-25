@@ -24,14 +24,14 @@ import { ErrorInterceptor } from './core/Interceptors/error.interceptor';
   providers: [
     MessageService,
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : BaseurlInterceptor,
-      multi : true
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseurlInterceptor,
+      multi: true
     },
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : ErrorInterceptor,
-      multi : true
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class BaseurlInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -24,10 +24,10 @@ export class BaseurlInterceptor implements HttpInterceptor {
     const modifiedRequest = request.clone({
       url: baseurl + request.url,
       setHeaders: {
-        token : `Bearer ${accesstoken}`
+        token: `Bearer ${accesstoken}`
       }
     });
-    
+
     return next.handle(modifiedRequest);
   }
 }

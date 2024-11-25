@@ -28,8 +28,7 @@ import { AnaliticsComponent } from './analitics/analitics.component';
     ArticlesComponent,
     PagesComponent,
     ProfileComponent,
-    AnaliticsComponent,
-    
+    AnaliticsComponent
   ],
   imports: [
     CommonModule,

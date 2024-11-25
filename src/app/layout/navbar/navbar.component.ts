@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router : Router){}
+  constructor(private router: Router) { }
 
   imageURL!: string
   userName !: string
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     this.userName = user.name;
     this.imageURL = user.profilepic
     this.role = user.role
-    
+
   }
   logout() {
     localStorage.clear();

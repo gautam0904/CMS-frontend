@@ -7,27 +7,27 @@ import { Icontent } from '../interfaces/user';
 })
 export class ContentService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  createpost(postData : Icontent , file : File ){
+  createpost(postData: Icontent, file: File) {
 
     const formData = new FormData();
     formData.append('title', postData.title);
     formData.append('description', postData.description);
     formData.append('midea', file, file.name);
 
-    return this.http.post('/content/create' , formData)
+    return this.http.post('/content/create', formData)
   }
 
-  getpost (Id=''){   
-    return this.http.get('/content/get',{params : {id : Id}})
+  getpost(Id = '') {
+    return this.http.get('/content/get', { params: { id: Id } })
   }
 
-  deletePost(id : string){
-    return this.http.delete('/content/delete' , {params : {id : id}})
+  deletePost(id: string) {
+    return this.http.delete('/content/delete', { params: { id: id } })
   }
 
-  updatePost(postData : Icontent , file : File | null = null){
+  updatePost(postData: Icontent, file: File | null = null) {
     let formData;
     if (file) {
       formData = new FormData();
@@ -35,10 +35,10 @@ export class ContentService {
       formData.append('description', postData.description);
       formData.append('midea', file, file.name);
     }
-    else{
+    else {
       formData = postData
     }
-    return this.http.put('/content/update' , formData)
+    return this.http.put('/content/update', formData)
   }
 
 }

@@ -14,7 +14,7 @@ import { LoadingComponent } from './loading/loading.component';
     CommonModule,
     DropdownModule
   ],
-  exports : [
+  exports: [
     LoadingComponent
   ]
 })

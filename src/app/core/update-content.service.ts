@@ -9,31 +9,31 @@ export class UpdateContentService {
 
   constructor() { }
 
-  dynamicForm : any = undefined;
+  dynamicForm: any = undefined;
 
-  profileForm : IUser | undefined = undefined;
+  profileForm: IUser | undefined = undefined;
 
-  getProfileForm(){
+  getProfileForm() {
     return this.profileForm;
   }
 
-  setprofileData(profile : IUser){
+  setprofileData(profile: IUser) {
     this.profileForm = profile
   }
 
-  deleteprofiledata(){
-    this.profileForm = undefined; 
+  deleteprofiledata() {
+    this.profileForm = undefined;
   }
 
-  getData(){
+  getData() {
     return this.dynamicForm;
   }
 
-  setData(data : any){
-    this.dynamicForm = data;   
+  setData(data: any) {
+    this.dynamicForm = data;
   }
 
-  deleteData(){
-    this.dynamicForm = undefined; 
+  deleteData() {
+    this.dynamicForm = undefined;
   }
 }

@@ -9,18 +9,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./images.component.scss']
 })
 export class ImagesComponent {
-  constructor(private content : ContentService){}
+  constructor(private content: ContentService) { }
 
   posts !: Icontent[]
 
   ngOnInit(): void {
 
-  
+
     this.content.getpost().subscribe({
-      next : (resdata : any) => {
+      next: (resdata: any) => {
         this.posts = resdata.data as Icontent[];
       },
-      error : (err) => {
+      error: (err) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",

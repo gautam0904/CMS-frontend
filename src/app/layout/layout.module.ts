@@ -13,7 +13,6 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
   declarations: [
     NavbarComponent,

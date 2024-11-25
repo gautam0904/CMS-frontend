@@ -8,21 +8,21 @@ import { UpdateContentService } from 'src/app/core/update-content.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  constructor(private ud : UpdateContentService) { }
-imageURL !: string;
-loading:boolean= false;
-profile = JSON.parse(localStorage.getItem('user') as string)
-updated: boolean = false;
+  constructor(private ud: UpdateContentService) { }
+  imageURL !: string;
+  loading: boolean = false;
+  profile = JSON.parse(localStorage.getItem('user') as string)
+  updated: boolean = false;
 
   ngOnInit() {
-    const profile = JSON.parse(localStorage.getItem('user') as string); 
+    const profile = JSON.parse(localStorage.getItem('user') as string);
     this.imageURL = profile.profilepic;
   }
 
   edit(profile: IUser) {
     console.log(profile);
-    
-    this.updated=true;
+
+    this.updated = true;
     this.ud.setprofileData(profile)
   }
 }

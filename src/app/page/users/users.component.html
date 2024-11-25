@@ -1,18 +1,18 @@
 <div class="row justify-content-center">
-    <div *ngFor="let user of users">
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-lg-4 ">
-                    <img [src]="user.profilepic" class="img-fluid img-th profilepic" alt="...">
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{user.name}}</h5>
-                        <p class="card-text">{{user.email}}</p>
-                        <p class="card-text"><small class="text-muted">Joined: {{user.createdAt| date}}</small></p>
-                    </div>
-                </div>
-            </div>
+  <div *ngFor="let user of users">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-lg-4 ">
+          <img [src]="user.profilepic" class="img-fluid img-th profilepic" alt="...">
         </div>
+        <div class="col-lg-8">
+          <div class="card-body">
+            <h5 class="card-title">{{user.name}}</h5>
+            <p class="card-text">{{user.email}}</p>
+            <p class="card-text"><small class="text-muted">Joined: {{user.createdAt| date}}</small></p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

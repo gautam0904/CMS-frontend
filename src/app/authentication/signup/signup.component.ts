@@ -14,7 +14,7 @@ import { UpdateContentService } from 'src/app/core/update-content.service';
 export class SignupComponent {
 
   @Input() isedit: boolean = false
-  @Input() profile : IUser | null = null
+  @Input() profile: IUser | null = null
 
   signupForm!: FormGroup;
   selectedFile!: File;
@@ -22,10 +22,10 @@ export class SignupComponent {
   loading: boolean = false
 
   constructor(private fb: FormBuilder,
-     private auth: AuthService, 
-     private router: Router, 
-     private messageService: MessageService,
-     private ud : UpdateContentService ) {
+    private auth: AuthService,
+    private router: Router,
+    private messageService: MessageService,
+    private ud: UpdateContentService) {
 
 
     this.signupForm = this.fb.group({
@@ -37,10 +37,10 @@ export class SignupComponent {
     })
   }
 
-  
-  ngAfterViewChecked(){
+
+  ngAfterViewChecked() {
     if (this.isedit) {
-      
+
       this.setInitialValues();
     }
   }
@@ -51,14 +51,14 @@ export class SignupComponent {
     const newvalues = this.ud.profileForm
     if (newvalues) {
       this.signupForm.patchValue({
-        name:newvalues?.name,
+        name: newvalues?.name,
         email: newvalues?.email,
         password: newvalues?.password,
         role: newvalues?.role
       });
       this.ud.deleteprofiledata();
     }
-    
+
   }
 
   onFileSelected(event: any) {

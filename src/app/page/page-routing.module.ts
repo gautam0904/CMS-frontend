@@ -13,46 +13,46 @@ import { AnaliticsComponent } from './analitics/analitics.component';
 
 const routes: Routes = [
   {
-    path : '',
-    component : PostComponent
+    path: '',
+    component: PostComponent
   },
   {
-    path : 'addPost',
-    component : PostCreateComponent
+    path: 'addPost',
+    component: PostCreateComponent
   },
   {
-    path : 'myContent',
-    component : MyContentComponent
+    path: 'myContent',
+    component: MyContentComponent
   },
   {
-    path : 'profile',
-    component : ProfileComponent
+    path: 'profile',
+    component: ProfileComponent
   },
   {
-    path : 'videos',
-    component : VideosComponent
+    path: 'videos',
+    component: VideosComponent
   },
   {
-    path : 'users',
-    component : UsersComponent
+    path: 'users',
+    component: UsersComponent
   },
   {
-    path : 'images',
-    component : ImagesComponent
+    path: 'images',
+    component: ImagesComponent
   },
   {
-    path : 'pages',
-    component : PagesComponent
+    path: 'pages',
+    component: PagesComponent
   },
   {
-    path : 'articles',
-    component : ArticlesComponent
+    path: 'articles',
+    component: ArticlesComponent
   },
   {
-    path : 'analitics',
-    component : AnaliticsComponent
+    path: 'analitics',
+    component: AnaliticsComponent
   }
-  
+
 ];
 
 @NgModule({

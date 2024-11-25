@@ -12,23 +12,23 @@ export class PostComponent implements OnInit {
 
   posts !: any;
 
-  constructor(private content : ContentService ){}
+  constructor(private content: ContentService) { }
 
-ngOnInit(): void {
+  ngOnInit(): void {
 
-  
-  this.content.getpost().subscribe({
-    next : (resdata : any) => {
-      this.posts = resdata.data as Icontent;
-    },
-    error : (err) => {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: err.message,
-      })
-    }
-  })
-}
+
+    this.content.getpost().subscribe({
+      next: (resdata: any) => {
+        this.posts = resdata.data as Icontent;
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.message,
+        })
+      }
+    })
+  }
 
 }

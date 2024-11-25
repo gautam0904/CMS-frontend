@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -11,38 +11,38 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginform ! : FormGroup;
-  loading:boolean= false
+  loginform !: FormGroup;
+  loading: boolean = false
 
-  constructor(private fb : FormBuilder , private author : AuthService , private router : Router , private messageService: MessageService) {}
+  constructor(private fb: FormBuilder, private author: AuthService, private router: Router, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.loginform = this.fb.group({
-      email : ['' , Validators.required],
-      password : ['' , Validators.required]
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
 
   }
-  onsubmit():void{
+  onsubmit(): void {
     this.loading = true;
     if (this.loginform.valid) {
       this.author.login(this.loginform.value).subscribe({
-        next : (resdata : any) => {
+        next: (resdata: any) => {
           this.loading = false
           if (resdata.data) {
-            Swal.fire({          
+            Swal.fire({
               icon: "success",
               title: "Oops...",
               text: resdata.message || "something went wrong",
             });
             localStorage.clear();
-            localStorage.setItem('token',resdata.data.token);
-            localStorage.setItem('user',JSON.stringify(resdata.data.user));
+            localStorage.setItem('token', resdata.data.token);
+            localStorage.setItem('user', JSON.stringify(resdata.data.user));
             // localStorage.setItem('user',JSON.stringify(resdata.data.user));
             this.loginform.reset();
             this.router.navigate(['/'])
           }
-          else{
+          else {
             Swal.fire({
               icon: "error",
               title: "Oops...",
@@ -51,10 +51,10 @@ export class LoginComponent implements OnInit {
             this.loginform.reset();
           }
         },
-        error : (res) => {
-          this.loading =false
+        error: (res) => {
+          this.loading = false
           console.log(res);
-          
+
           Swal.fire({
             icon: "error",
             title: "Oops...",
