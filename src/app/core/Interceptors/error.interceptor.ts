@@ -9,6 +9,7 @@ import {
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router'
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -24,6 +25,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           if(!error.error.message){
             error.error.message = 'Something went wrong!!!!!!!!!!'
           }
+
+          Swal.fire({
+            icon: "error",
+            title: error.status,
+            text: error.error.message,
+          });
+
 
           if (error.status === 401) {
             this.router.navigate(['/auth']);

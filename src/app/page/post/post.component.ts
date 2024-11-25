@@ -25,7 +25,7 @@ ngOnInit(): void {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: err.error.message,
+        text: err.message,
       })
     }
   })
