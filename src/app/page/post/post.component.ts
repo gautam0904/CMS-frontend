@@ -30,5 +30,9 @@ export class PostComponent implements OnInit {
       }
     })
   }
+  
+  toggleDescription(post: any) {
+    post.showFullDescription = !post.showFullDescription;
+  }
 
 }

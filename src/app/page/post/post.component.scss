@@ -1,19 +1,42 @@
 .post {
   border-radius: 25px;
+  background: #9987bd9c;
+  box-shadow: 5px 5px 20px 3px #060606, -5px -5px 20px 3px #a392a1;
   margin: 10px;
-  background-color: #9987bd9c;
-  box-shadow: inset 0px 0px 20px 5px #909090;
+  height: auto;
+  overflow: hidden;
 }
 
 .image {
   width: 100%;
   aspect-ratio: 1/1;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 12px;
 }
+
+.video {
+  width: 100%;
+}
+
 
 .description,
 .title {
   padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 10px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.read-more-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }

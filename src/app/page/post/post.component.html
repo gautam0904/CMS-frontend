@@ -1,11 +1,11 @@
-<div class="d-flex flex-wrap  gap-3">
+<div class="d-flex flex-wrap gap-3" style="align-items: flex-start;">
   <div class="card post" style="width: 30%;" *ngFor="let post of posts">
-    <div class="image " *ngIf="post.type == 'video/mp4'">
-      <video class="w-100 mt-3" controls>
-        <source class="image " src="{{post.midea}}" type="video/mp4">
+    <div *ngIf="post.type == 'video/mp4'">
+      <video class="w-100" controls>
+        <source class="video" src="{{post.midea}}" type="video/mp4">
       </video>
     </div>
-    <div class="image" *ngIf="post.type == 'image/jpeg' || post.type=='image/png'">
+    <div *ngIf="post.type == 'image/jpeg' || post.type=='image/png'">
       <img class="image" src="{{post.midea}}" alt="">
     </div>
 
@@ -13,8 +13,11 @@
       {{post.title}}
     </div>
     <div class="description">
-      {{post.description}}
+      {{ post.showFullDescription ? post.description : (post.description | slice:0:100) }}
+      <span *ngIf="!post.showFullDescription && post.description.length > 100">...</span>
+      <a *ngIf="post.description.length > 100" (click)="toggleDescription(post)" class="read-more-link">
+        {{ post.showFullDescription ? 'Read Less' : 'Read More' }}
+      </a>
     </div>
   </div>
-
 </div>
