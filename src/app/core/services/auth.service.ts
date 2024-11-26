@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   getAllusers() {
-    return this.http.get('/user/getAll')
+    return this.http.get('/user/getById')
   }
 
 }
