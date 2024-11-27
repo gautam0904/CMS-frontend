@@ -18,7 +18,7 @@ export class SignupComponent {
 
   signupForm!: FormGroup;
   selectedFile!: File;
-  selectedRole!: string;
+  selectedRole!: string = '';
   loading: boolean = false
 
   constructor(private fb: FormBuilder,
@@ -29,6 +29,7 @@ export class SignupComponent {
 
 
     this.signupForm = this.fb.group({
+      _id: [''],
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -51,6 +52,7 @@ export class SignupComponent {
     const newvalues = this.ud.profileForm
     if (newvalues) {
       this.signupForm.patchValue({
+        _id: newvalues?._id,
         name: newvalues?.name,
         email: newvalues?.email,
         password: newvalues?.password,
@@ -70,11 +72,12 @@ export class SignupComponent {
 
   onSubmit() {
     this.loading = true;
-    this.auth.signup(this.signupForm.value, this.selectedFile).subscribe({
+    const res = this.isedit ? this.auth.updateProfile(this.signupForm.value, this.selectedFile) : this.auth.signup(this.signupForm.value, this.selectedFile);
+    res.subscribe({
       next: (resdata: any) => {
         this.loading = false;
         this.messageService.add({ severity: 'success', summary: 'Success', detail: resdata.message });
-        this.router.navigate(['/auth'])
+        this.isedit ? this.ud.setData(null) : this.router.navigate(['/auth'])
       },
       error: (res: any) => {
         this.loading = false;

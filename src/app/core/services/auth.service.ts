@@ -33,4 +33,19 @@ export class AuthService {
     return this.http.get('/user/getById')
   }
 
+  updateProfile(profileData: IUser, imageFile: File | null = null) {
+    let formData
+    if (imageFile) {
+      formData = new FormData();
+      formData.append('_id', profileData._id);
+      formData.append('name', profileData.name);
+      formData.append('role', profileData.role);
+      formData.append('profilePicture', imageFile, imageFile.name);
+    }
+    else {
+      formData = profileData
+    }
+    return this.http.put('/user/update', formData)
+  }
+
 }

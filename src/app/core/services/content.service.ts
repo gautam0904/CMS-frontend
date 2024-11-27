@@ -27,17 +27,18 @@ export class ContentService {
     return this.http.delete('/content/delete', { params: { id: id } })
   }
 
-  updatePost(postData : Icontent , file : File ){
+  updatePost(postData: Icontent, file: File) {
     let formData;
     if (file) {
       formData = new FormData();
-    formData.append('title', postData.title);
-    formData.append('description', postData.description);
-    formData.append('midea', file, file?.name);
-    }else{
+      formData.append('_id', postData._id);
+      formData.append('title', postData.title);
+      formData.append('description', postData.description);
+      formData.append('midea', file, file?.name);
+    } else {
       formData = postData
     }
-    return this.http.put('/content/update' , formData)
+    return this.http.put('/content/update', formData)
   }
 
 }

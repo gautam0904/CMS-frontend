@@ -20,6 +20,7 @@ export class PostCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createpost = this.fb.group({
+      _id: [''],
       title: ['', Validators.required],
       description: ['', Validators.required],
       midea: ['', Validators.required],
@@ -38,6 +39,7 @@ export class PostCreateComponent implements OnInit {
     const newvalues = this.ud.dynamicForm
 
     this.createpost.patchValue({
+      _id: newvalues._id,
       title: newvalues.title,
       description: newvalues.description
     });
@@ -52,7 +54,18 @@ export class PostCreateComponent implements OnInit {
   }
 
   onsubmit() {
-    this.loading = true
+    this.loading = true;
+    console.log(this.isupdate, this.selectedFile);
+
+    if (!this.isupdate && !this.selectedFile) {
+      this.loading = false;
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select a file.",
+      });
+      return
+    }
     const apiPost = this.isupdate ? this.post.updatePost(this.createpost.value, this.selectedFile) : this.post.createpost(this.createpost.value, this.selectedFile)
 
     apiPost.subscribe({

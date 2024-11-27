@@ -28,7 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
           Swal.fire({
             icon: "error",
-            title: error.status,
+            title: "Error",
             text: error.error.message,
           });
 

@@ -23,9 +23,8 @@
             aria-label="Upload" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic"
             placeholder="Hello" required>
 
-          <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedRole" formControlName="role"
-            placeholder="selecte Role" aria-label=".form-select-lg example">
-            <option value="" selected="true" disabled>Select Role</option>
+          <select class="form-select form-select-lg mb-3" formControlName="role" aria-label=".form-select-lg example">
+            <option value="" selected disabled>Select Role</option>
             <option value="user">User</option>
             <option value="creater">Creater</option>
           </select>
