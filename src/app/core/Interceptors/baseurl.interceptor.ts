@@ -15,8 +15,8 @@ export class BaseurlInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
+    // const baseurl = 'http://localhost:8081'
     const baseurl = 'https://cms-backend-1-ha2h.onrender.com'
-
 
 
     const accesstoken = localStorage.getItem('token');

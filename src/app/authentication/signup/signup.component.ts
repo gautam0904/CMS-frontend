@@ -18,7 +18,7 @@ export class SignupComponent {
 
   signupForm!: FormGroup;
   selectedFile!: File;
-  selectedRole!: string = '';
+  selectedRole: string = '';
   loading: boolean = false
 
   constructor(private fb: FormBuilder,
