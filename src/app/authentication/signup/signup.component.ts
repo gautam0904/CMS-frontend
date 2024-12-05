@@ -77,7 +77,7 @@ export class SignupComponent {
       next: (resdata: any) => {
         this.loading = false;
         this.messageService.add({ severity: 'success', summary: 'Success', detail: resdata.message });
-        this.isedit ? this.ud.setData(null) : this.router.navigate(['/auth'])
+        this.isedit ? (this.ud.setData(null), localStorage.setItem('user', JSON.stringify(resdata.data)), window.location.reload()) : this.router.navigate(['/auth'])
       },
       error: (res: any) => {
         this.loading = false;

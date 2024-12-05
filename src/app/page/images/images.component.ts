@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class ImagesComponent {
   constructor(private content: ContentService) { }
 
-  posts !: Icontent[]
+  posts !: any[]
 
   ngOnInit(): void {
 

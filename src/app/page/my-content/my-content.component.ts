@@ -17,7 +17,12 @@ export class MyContentComponent implements OnInit {
   updated: boolean = false;
 
 
-  constructor(private messageService: MessageService, private cdr: ChangeDetectorRef, private content: ContentService, private ud: UpdateContentService) { }
+  constructor(
+    private messageService: MessageService,
+    private cdr: ChangeDetectorRef,
+    private content: ContentService,
+    private ud: UpdateContentService
+  ) { }
 
   showConfirm() {
     if (!this.visible) {
@@ -34,7 +39,7 @@ export class MyContentComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem('user') as string)
     this.id = user._id
 
-    this.content.getpost(this.id).subscribe({
+    this.content.getPostByUser(this.id).subscribe({
       next: (resdata: any) => {
         this.posts = resdata.data as Icontent;
       },

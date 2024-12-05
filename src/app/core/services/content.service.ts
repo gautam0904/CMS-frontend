@@ -41,4 +41,8 @@ export class ContentService {
     return this.http.put('/content/update', formData)
   }
 
+  getPostByUser(id: string) {
+    return this.http.get('/content/getByUser', { params: { id: id } })
+  }
+
 }
