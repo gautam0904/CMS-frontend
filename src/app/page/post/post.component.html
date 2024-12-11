@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap gap-3" style="align-items: flex-start;">
   <div class="card post" style="width: 30%;" *ngFor="let post of posts">
-    <div *ngIf="post.type == 'video/mp4'">
+    <div *ngIf="post.mideaType == 'video/mp4' || post.type == 'video/mp4'">
       <video class="w-100" controls>
         <source class="video" src="{{post.midea}}" type="video/mp4">
       </video>

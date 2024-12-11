@@ -3,8 +3,13 @@
     <app-loading></app-loading>
   </div>
 
-  <div class="col-md-6 w-25 login-form" *ngIf="!loading">
-    <div class="main">
+  
+
+  <div class="register-form col-md-6 w-100 login-form" *ngIf="!loading">
+    <div class="background-image col-lg-8" *ngIf="!isedit">
+      <img class="img-fluid" src="../../../assets/11817485_4853608.svg" alt="">
+    </div>
+    <div class="main col-lg-4 m-auto">
       <div class="register">
         <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
           <button *ngIf="isedit" type="button" class="ms-auto mt-3 border-0 rounded" data-bs-dismiss="modal"
@@ -12,26 +17,36 @@
           <label for="chk" aria-hidden="true" *ngIf="!isedit">Register</label>
 
           <label style="margin-top: 0;" aria-hidden="true" *ngIf="isedit">Edit Your Profile</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name" required>
+          </mat-form-field>
 
-          <input class="input" for="name" type="text" formControlName="name" placeholder="Name" required="">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Email" required>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Password" required>
+          </mat-form-field>
 
-          <input class="input" for="email" type="email" formControlName="email" placeholder="Email" required="">
-
-          <input class="input" for="password" type="password" formControlName="password" placeholder="Password"
-            required="">
           <input type="file" class="form-control input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
             aria-label="Upload" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic"
             placeholder="Hello" required>
 
-          <select class="form-select form-select-lg mb-3" formControlName="role" aria-label=".form-select-lg example">
-            <option value="" selected disabled>Select Role</option>
-            <option value="user">User</option>
-            <option value="creater">Creater</option>
-          </select>
+          <mat-form-field appearance="fill">
+            <mat-label>Select Role</mat-label>
+            <mat-select formControlName="role" aria-label="Select Role">
+              <mat-option value="" disabled>Select Role</mat-option>
+              <mat-option value="user">User</mat-option>
+              <mat-option value="creater">Creater</mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <a routerLink="/auth">Already have an account</a>
-
-          <button class="signup-btn" type="submit">Register</button>
+          <button mat-raised-button class="signup-btn" type="submit">Register</button>
         </form>
       </div>
     </div>

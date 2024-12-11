@@ -1,0 +1,7 @@
+.ms-0 {
+  margin: 0 16px 0 0 !important;
+}
+
+::ng-deep .dropdown-toggle::after {
+  display: none !important;
+}

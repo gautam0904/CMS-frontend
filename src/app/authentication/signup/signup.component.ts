@@ -1,10 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { IUser } from 'src/app/core/interfaces/user';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UpdateContentService } from 'src/app/core/update-content.service';
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
+interface Car {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +25,21 @@ export class SignupComponent {
 
   @Input() isedit: boolean = false
   @Input() profile: IUser | null = null
+  
+  selectedValue: string | undefined;
+  selectedCar: string | undefined;
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
+  cars: Car[] = [
+    {value: 'volvo', viewValue: 'Volvo'},
+    {value: 'saab', viewValue: 'Saab'},
+    {value: 'mercedes', viewValue: 'Mercedes'},
+  ];
 
   signupForm!: FormGroup;
   selectedFile!: File;
@@ -77,7 +102,8 @@ export class SignupComponent {
       next: (resdata: any) => {
         this.loading = false;
         this.messageService.add({ severity: 'success', summary: 'Success', detail: resdata.message });
-        this.isedit ? this.ud.setData(null) : this.router.navigate(['/auth'])
+        localStorage.setItem('user', JSON.stringify(resdata.data));
+        this.isedit ? (this.ud.setData(null), window.location.reload(), this.router.navigate(['/'])) : this.router.navigate(['/auth'])
       },
       error: (res: any) => {
         this.loading = false;

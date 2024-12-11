@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { LayoutModule } from './layout/layout.module';
 import { ErrorInterceptor } from './core/Interceptors/error.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ErrorInterceptor } from './core/Interceptors/error.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [
     MessageService,

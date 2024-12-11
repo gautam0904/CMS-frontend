@@ -1,7 +1,7 @@
 <div class="d-flex flex-wrap  gap-3">
   <div class="card post" style="width: 30%;" *ngFor="let post of posts">
 
-    <div class="image" *ngIf="post.type == 'image/jpeg' || post.type=='image/png'">
+    <div class="image" *ngIf="post.mideaType == 'image/jpeg' || post.mideaType=='image/png' || post.mideaType == 'image/jpg' || post.type == 'image/jpeg' || post.type=='image/png' || post.type == 'image/jpg'">
       <img class="image" src="{{post.midea}}" alt="">
     </div>
 

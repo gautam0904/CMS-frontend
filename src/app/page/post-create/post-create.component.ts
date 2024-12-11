@@ -77,7 +77,7 @@ export class PostCreateComponent implements OnInit {
           text: resdata.message,
         });
         this.ud.setData(null);
-        this.router.navigate(['/'])
+        this.isupdate? window.location.reload() : this.router.navigate(['/']);
       },
       error: (res: any) => {
         this.loading = false;

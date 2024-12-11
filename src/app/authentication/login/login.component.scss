@@ -6,7 +6,19 @@
   max-height: 420px;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 7px 7px 10px 3px #24004628;
+  box-shadow: 7px 7px 10px 3px #24004661;
+}
+
+.login-form{
+  display: flex;
+  justify-content: start;
+}
+
+.background-image {
+  background-size: cover;
+  background-position: center;
+ 
+  z-index: -1; 
 }
 
 .full-height {
@@ -18,6 +30,8 @@
   flex-direction: column;
   gap: 14px;
   padding: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -29,7 +43,7 @@
 }
 
 .login label {
-  margin: 25% 0 5%;
+  margin: 5% 0 5%;
 }
 
 label {
@@ -69,4 +83,41 @@ label {
 
 .form button:hover {
   background-color: #6d44b8;
+}
+
+@media (max-width: 768px) {
+  .main {
+    max-height: none;
+    padding: 10px; 
+  }
+
+  .background-image {
+    display: none;
+  }
+
+  .signup-btn {
+    width: 100%; 
+  }
+
+  label {
+    font-size: 1.5rem; 
+  }
+
+  .form {
+    padding: 10px; 
+  }
+}
+
+@media (max-width: 480px) {
+  label {
+    font-size: 1.2rem; 
+  }
+
+  .register-form{
+    display: flex;
+  }
+
+  .input {
+    height: 35px; 
+  }
 }
