@@ -1,24 +1,47 @@
-<div class="container full-height d-flex justify-content-center align-items-center">
-  <div class="col-md-6 w-50 profile login-form p-5">
-    <img class="profilepic mx-auto" src="{{imageURL}}" alt="">
+<div class="container-fluid full-height">
+  <div class="row justify-content-center">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <ng-container *ngIf="profile.profilepic; else fallbackAvatar">
+              <img class="profilepic" [src]="profile.profilepic" alt="Profile Picture">
+            </ng-container>
+            <ng-template #fallbackAvatar>
+              <div class="fallback-avatar">
+                {{ (profile.name || '')[0]?.toUpperCase() }}
+              </div>
+            </ng-template>
+          </div>
+          <h3 class="profile-name">{{ profile.name }}</h3>
+          <p class="profile-email">{{ profile.email }}</p>
+        </div>
 
-    <div>
-      <h3>profile</h3>
-    </div>
-    <div>
-      <p>Name: {{profile.name}}</p>
-      <p>Email: {{profile.email}}</p>
-    </div>
+        <div class="profile-content">
+          <h4>Profile Details</h4>
+          <div class="profile-info">
+            <p><strong>Name:</strong> {{ profile.name }}</p>
+            <p><strong>Email:</strong> {{ profile.email }}</p>
+            <p><strong>Role:</strong> {{ profile.role }}</p>
+            <p><strong>Created At:</strong> {{ profile.createdAt | date:'medium' }}</p>
+            <p><strong>Updated At:</strong> {{ profile.updatedAt | date:'medium' }}</p>
+          </div>
+          <div class="action text-center">
+            <button 
+              type="button" 
+              class="action-btn" 
+              data-bs-toggle="modal" 
+              data-bs-target="#exampleModal"
+              (click)="edit(profile)">
+              <i class="pi pi-pencil"></i> Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <div class="action">
-      <button type="button" class="btn action-btn btn btn-outline" data-bs-toggle="modal" data-bs-target="#exampleModal"
-        (click)="edit(profile)"><i class="pi  pi-pencil"></i> Edit</button>
-      <!-- Modal -->
-      <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+      <!-- Modal remains the same as in your original code -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
-          <div class="modal-content bg-transparent border-0">
-
+          <div class="modal-content bg-transparent">
             <div class="modal-body">
               <app-signup [isedit]="updated" [profile]="profile"></app-signup>
             </div>
@@ -27,5 +50,3 @@
       </div>
     </div>
   </div>
-
-</div>

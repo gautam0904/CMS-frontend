@@ -1,5 +1,6 @@
 // Angular import
 import { Component } from '@angular/core';
+import { IUser } from 'src/app/core/interfaces/user';
 
 @Component({
     selector: 'app-nav-right',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
     styleUrls: ['./nav-right.component.scss'],
     standalone: false
 })
-export class NavRightComponent {}
+export class NavRightComponent {
+    currentUser!: IUser
+    firstLatter !:string;
+    constructor() {
+        this.currentUser = JSON.parse(localStorage.getItem('user') as string)
+        this.firstLatter = this.currentUser.name.charAt(0).toUpperCase();
+    }
+}

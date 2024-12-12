@@ -29,4 +29,8 @@ export class ImagesComponent {
       }
     })
   }
+
+  toggleDescription(post: any) {
+    post.showFullDescription = !post.showFullDescription;
+  }
 }

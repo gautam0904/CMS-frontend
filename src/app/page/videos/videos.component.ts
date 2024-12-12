@@ -12,7 +12,7 @@ export class VideosComponent {
 
   constructor(private content: ContentService) { }
 
-  posts !: Icontent[]
+  posts !: any
 
   ngOnInit(): void {
 
@@ -29,5 +29,8 @@ export class VideosComponent {
         })
       }
     })
+  }
+  toggleDescription(post: any) {
+    post.showFullDescription = !post.showFullDescription;
   }
 }

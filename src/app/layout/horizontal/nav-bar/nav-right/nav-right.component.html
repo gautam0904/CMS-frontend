@@ -32,7 +32,7 @@
                 <a class="list-group-item list-group-item-action">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar" />
+                      <div class="user-avtar bg-light-warning"><i class="ti ti-building"></i></div>
                     </div>
                     <div class="flex-grow-1 ms-1">
                       <span class="float-end text-muted">2 min ago</span>
@@ -75,7 +75,7 @@
                 <a class="list-group-item list-group-item-action">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img src="assets/images/user/avatar-1.jpg" alt="user-image" class="user-avtar" />
+                      <div class="user-avtar bg-light-success"><i class="ti ti-accessible"></i></div>
                     </div>
                     <div class="flex-grow-1 ms-1">
                       <span class="float-end text-muted">8 min ago</span>
@@ -94,7 +94,7 @@
                 <a class="list-group-item list-group-item-action">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img src="assets/images/user/avatar-3.jpg" alt="user-image" class="user-avtar" />
+                      <div class="user-avtar bg-light-secondary"><i class="ti ti-align-box-bottom-right"></i></div>
                     </div>
                     <div class="flex-grow-1 ms-1">
                       <span class="float-end text-muted">10 min ago</span>
@@ -122,7 +122,9 @@
           href="javascript:"
           ngbDropdownToggle
         >
-          <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar" />
+        <div class="user-avtar rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+          {{firstLatter}}
+        </div>
           <span>
             <i class="ti ti-settings"></i>
           </span>
@@ -149,7 +151,7 @@
                   <br />
                   subscriptions.
                 </p>
-                <a href="https://codedthemes.com/item/berry-angular-admin-dashboard-template/" target="_blank" class="btn btn-warning">
+                <a href="javascript:" target="_blank" class="btn btn-warning">
                   Go Premium
                 </a>
               </div>
@@ -165,7 +167,7 @@
                 </div>
               </div>
               <hr />
-              <a [routerLink]="['/guest/register']" class="dropdown-item">
+              <a [routerLink]="['/page/profile']" class="dropdown-item">
                 <i class="ti ti-settings"></i>
                 <span>Account Profile</span>
               </a>
@@ -173,7 +175,7 @@
                 <i class="ti ti-user"></i>
                 <span>Social Profile</span>
               </a>
-              <a [routerLink]="['/guest/login']" class="dropdown-item">
+              <a [routerLink]="['/auth']" class="dropdown-item">
                 <i class="ti ti-logout"></i>
                 <span>Logout</span>
               </a>

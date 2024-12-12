@@ -1,5 +1,5 @@
 <div *ngFor="let post of posts">
-  <div class="card post" *ngIf="post.type == 'video/mp4'">
+  <div class="card post" *ngIf="post.mideaType == 'video/mp4' || post.type == 'video/mp4'">
     <div class="image">
       <video class="video mt-3" controls>
         <source src="{{post.midea}}" type="video/mp4">
@@ -10,7 +10,11 @@
       {{post.title}}
     </div>
     <div class="description">
-      {{post.description}}
+      {{ post.showFullDescription ? post.description : (post.description | slice:0:100) }}
+      <span *ngIf="!post.showFullDescription && post.description.length > 100">...</span>
+      <a *ngIf="post.description.length > 100" (click)="toggleDescription(post)" class="read-more-link">
+        {{ post.showFullDescription ? 'Read Less' : 'Read More' }}
+      </a>
     </div>
   </div>
 

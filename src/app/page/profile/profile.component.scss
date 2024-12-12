@@ -1,32 +1,110 @@
-.profilepic {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
+.full-height {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+  padding: 0px;
   overflow: hidden;
-}
+  transition: transform 0.3s ease;
 
-.profile {
-  border-radius: 10px;
-  margin: 0px 0px 12px 12px;
-  background: linear-gradient(145deg, #cacaca, #f0f0f0);
-  box-shadow: 12px 12px 24px #c1c1c1,
-    -12px -12px 24px #ffffff;
-}
+  &:hover {
+    transform: translateY(-5px);
+  }
 
+  .profile-header {
+    padding: 20px;
+    background: linear-gradient(to right, #573b8a, #6d44b8);
+    color: white;
 
+    .profile-avatar {
+      margin: 0 auto;
+      position: relative;
 
-.action-btn {
-  border: 2px solid #573b8a;
-  background-color: #573b8a;
-  color: white;
-  border-radius: 0.9em;
-  padding: 0.8em 1.2em 0.8em 1em;
-  transition: all ease-in-out 0.2s;
-  font-size: 16px;
-}
+      .profilepic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
 
+      .fallback-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: #573b8a;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
 
+    .profile-name {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      font-weight: bold;
+    }
 
-.action-btn:hover {
-  background-color: #6d44b8;
+    .profile-email {
+      font-size: 1rem;
+      margin: 5px 0;
+    }
+  }
+
+  .profile-content {
+    padding: 20px;
+
+    h4 {
+      margin-bottom: 15px;
+      color: #573b8a;
+    }
+
+    .profile-info {
+      text-align: left;
+      margin-bottom: 20px;
+
+      p {
+        margin: 5px 0;
+        font-size: 1rem;
+
+        strong {
+          color: #573b8a;
+        }
+      }
+    }
+
+    .action {
+      margin-top: 20px;
+
+      .action-btn {
+        background-color: #573b8a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #6d44b8;
+        }
+
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }

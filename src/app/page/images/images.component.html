@@ -9,7 +9,11 @@
       {{post.title}}
     </div>
     <div class="description">
-      {{post.description}}
+      {{ post.showFullDescription ? post.description : (post.description | slice:0:100) }}
+      <span *ngIf="!post.showFullDescription && post.description.length > 100">...</span>
+      <a *ngIf="post.description.length > 100" (click)="toggleDescription(post)" class="read-more-link">
+        {{ post.showFullDescription ? 'Read Less' : 'Read More' }}
+      </a>
     </div>
   </div>
 

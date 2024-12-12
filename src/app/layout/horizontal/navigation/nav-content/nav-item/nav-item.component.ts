@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 
 // Project import
 import { NavigationItem } from '../../navigation';
+import { IUser } from 'src/app/core/interfaces/user';
 
 @Component({
     selector: 'app-nav-item',
@@ -14,6 +15,11 @@ export class NavItemComponent {
   // public props
   @Input() item!: NavigationItem;
 
+  currentuser: IUser = JSON.parse(localStorage.getItem('user') as string);
+
+  ngOnInit() {
+    this.currentuser = JSON.parse(localStorage.getItem('user') as string);    
+  }
   // public method
   closeOtherMenu(event: any) {
     const ele = event.target;

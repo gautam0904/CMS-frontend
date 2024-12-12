@@ -48,4 +48,8 @@ export class AuthService {
     return this.http.put('/user/update', formData)
   }
 
+  deleteUser(id: string) {
+    return this.http.delete('/user/delete', { body: { userId: id } })
+  }
+
 }

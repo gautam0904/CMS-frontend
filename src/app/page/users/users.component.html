@@ -1,15 +1,48 @@
-<div class="row justify-content-center">
-  <div *ngFor="let user of users">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-lg-4 ">
-          <img [src]="user.profilepic" class="img-fluid img-th profilepic" alt="...">
-        </div>
-        <div class="col-lg-8">
-          <div class="card-body">
-            <h5 class="card-title">{{user.name}}</h5>
-            <p class="card-text">{{user.email}}</p>
-            <p class="card-text"><small class="text-muted">Joined: {{user.createdAt| date}}</small></p>
+<div class="container-fluid users-container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2 class="section-title text-center mb-5">Our Community Members</h2>
+    </div>
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="user-grid">
+        <div *ngFor="let user of users" class="user-card">
+          <div class="user-card-inner">
+            <div class="user-card-front">
+              <div class="profile-image-container">
+                <img [src]="user.profilepic" class="profile-image" alt="User Profile">
+              </div>
+              <div class="user-details">
+                <h5 class="user-name">{{ user.name }}</h5>
+                <p class="user-email">{{ user.email }}</p>
+              </div>
+            </div>
+            <div class="user-card-back">
+              <div class="user-additional-info">
+                <p><strong>Joined:</strong> {{ user.createdAt | date:'mediumDate' }}</p>
+                <p><strong>Role:</strong> {{ user.role? user.role == 'user' ? 'Member' : user.role : 'Member' }}</p>
+                <div class="user-actions">
+                  <div class="action">
+                    <button type="button" class="btn action-btn text-primary" *ngIf="currentUser.role == 'admin'" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(user)"><i class="pi  pi-pencil"></i> Edit</button>
+                    <!-- Modal -->
+                    <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content bg-transparent border-0">
+              
+                          <div class="modal-body">
+                            <!-- <app-post-create [isupdate]="updated"></app-post-create> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <button type="button" *ngIf="currentUser.role == 'admin'" class="btn action-btn text-danger" (click)="delete(user)"><i class="pi pi-trash"></i>
+                      Delete</button>
+                  </div>
+                  <button class="btn btn-primary">View Profile</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

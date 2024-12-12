@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
 import { HorizontalComponent } from './layout/horizontal/horizontal.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,14 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 

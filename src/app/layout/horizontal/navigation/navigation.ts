@@ -8,6 +8,7 @@ export interface NavigationItem {
   url?: string;
   classes?: string;
   external?: boolean;
+  role: string[];
   target?: boolean;
   breadcrumbs?: boolean;
   children?: Navigation[];
@@ -27,76 +28,84 @@ const NavigationItems = [
         id: 'default',
         title: 'Dashboard',
         type: 'item',
-        classes: 'nav-item',
-        url: '/default',
-        icon: 'ti ti-dashboard',
+        classes: 'nav-item   menu',
+        url: '/',
+        role: ['user', 'admin','creater'],
+        icon: 'pi pi-home',
+        breadcrumbs: false
+      },
+      {
+        id: 'my-content',
+        title: 'My content',
+        type: 'item',
+        classes: 'nav-item   menu',
+        url: '/page/myContent',
+        role: ['creater'],
+        icon: 'pi pi-briefcase menu',
+        breadcrumbs: true
+      }
+    ]
+  },
+  {
+    id: 'authentication',
+    title: 'Authentication',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'login',
+        title: 'Login',
+        type: 'item',
+        url: '/auth',
+        role: ['admin', 'creater', 'user'],
+        classes: 'nav-item   menu',
+        icon: 'pi pi-sign-in',
+        breadcrumbs: false
+      },
+      {
+        id: 'register',
+        title: 'Signup',
+        type: 'item',
+        url: '/auth/signup',
+        role: ['admin', 'creater', 'user'],
+        classes: 'nav-item   menu',
+        icon: 'pi pi-user-plus',
         breadcrumbs: false
       }
     ]
   },
   {
-    id: 'page',
+    id: 'pages',
     title: 'Pages',
     type: 'group',
     icon: 'icon-navigation',
     children: [
       {
-        id: 'Authentication',
-        title: 'Authentication',
-        type: 'collapse',
-        icon: 'ti ti-key',
-        children: [
-          {
-            id: 'login',
-            title: 'Login',
-            type: 'item',
-            url: '/guest/login',
-            target: true,
-            breadcrumbs: false
-          },
-          {
-            id: 'register',
-            title: 'Register',
-            type: 'item',
-            url: '/guest/register',
-            target: true,
-            breadcrumbs: false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'elements',
-    title: 'Elements',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'typography',
-        title: 'Typography',
+        id: 'videos',
+        title: 'Videos',
         type: 'item',
-        classes: 'nav-item',
-        url: '/typography',
-        icon: 'ti ti-typography'
+        classes: 'nav-item   menu',
+        role: ['admin', 'creater', 'user'],
+        url: '/page/videos',
+        icon: 'pi pi-fw pi-video'
       },
       {
-        id: 'color',
-        title: 'Colors',
+        id: 'image',
+        title: 'Images',
         type: 'item',
-        classes: 'nav-item',
-        url: '/color',
-        icon: 'ti ti-brush'
+        classes: 'nav-item   menu',
+        role: ['admin', 'creater', 'user'],
+        url: '/page/images',
+        icon: 'pi pi-fw pi-image'
       },
       {
-        id: 'tabler',
-        title: 'Tabler',
+        id: 'article',
+        title: 'Article',
         type: 'item',
-        classes: 'nav-item',
-        url: 'https://tabler-icons.io/',
-        icon: 'ti ti-plant-2',
-        target: true,
-        external: true
+        classes: 'nav-item   menu',
+        role: ['admin', 'creater', 'user'],
+        url: '/page/articles',
+        icon: 'pi pi-fw pi-align-justify',
       }
     ]
   },
@@ -107,22 +116,31 @@ const NavigationItems = [
     icon: 'icon-navigation',
     children: [
       {
-        id: 'sample-page',
-        title: 'Sample Page',
+        id: 'Users',
+        title: 'Users',
         type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'ti ti-brand-chrome'
+        url: '/page/users',
+        role: ['admin', 'creater', 'user'],
+        classes: 'nav-item   menu',
+        icon: 'pi pi-fw pi-users'
       },
       {
-        id: 'document',
-        title: 'Document',
+        id: 'add-content',
+        title: 'Add content',
         type: 'item',
-        classes: 'nav-item',
-        url: 'https://codedthemes.gitbook.io/berry-angular/',
-        icon: 'ti ti-vocabulary',
-        target: true,
-        external: true
+        classes: 'nav-item   menu',
+        role: ['admin', 'creater', 'user'],
+        url: '/page/addPost',
+        icon: 'pi pi-file-plus menu',
+      },
+      {
+        id: 'creater-channel',
+        title: 'Make your channel',
+        type: 'item',
+        classes: 'nav-item   menu',
+        role: ['admin', 'creater', 'user'],
+        url: '/page/addPost',
+        icon: 'pi pi-file-plus menu',
       }
     ]
   }

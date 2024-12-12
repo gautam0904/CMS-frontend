@@ -22,12 +22,12 @@
             <input matInput formControlName="name" placeholder="Name" required>
           </mat-form-field>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" *ngIf="!isedit">
             <mat-label>Email</mat-label>
             <input matInput type="email" formControlName="email" placeholder="Email" required>
           </mat-form-field>
       
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" *ngIf="!isedit">
             <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="password" placeholder="Password" required>
           </mat-form-field>
@@ -36,7 +36,7 @@
             aria-label="Upload" (change)="onFileSelected($event)" accept="image/*" formControlName="profilepic"
             placeholder="Hello" required>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" *ngIf="!isedit">
             <mat-label>Select Role</mat-label>
             <mat-select formControlName="role" aria-label="Select Role">
               <mat-option value="" disabled>Select Role</mat-option>

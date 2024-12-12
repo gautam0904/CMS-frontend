@@ -5,16 +5,7 @@ import { MessageService } from 'primeng/api';
 import { IUser } from 'src/app/core/interfaces/user';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UpdateContentService } from 'src/app/core/update-content.service';
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
-interface Car {
-  value: string;
-  viewValue: string;
-}
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -26,24 +17,18 @@ export class SignupComponent {
   @Input() isedit: boolean = false
   @Input() profile: IUser | null = null
   
-  selectedValue: string | undefined;
-  selectedCar: string | undefined;
-
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
-
-  cars: Car[] = [
-    {value: 'volvo', viewValue: 'Volvo'},
-    {value: 'saab', viewValue: 'Saab'},
-    {value: 'mercedes', viewValue: 'Mercedes'},
-  ];
-
   signupForm!: FormGroup;
-  selectedFile!: File;
+  selectedFile: File | null = null;
   selectedRole: string = '';
+  editUser: IUser | undefined= {
+    _id: '',
+    name: '',
+    email: '',
+    password: '',
+    profilepic: '',
+    role: 'user',
+    createdAt: ''
+  }
   loading: boolean = false
 
   constructor(private fb: FormBuilder,
@@ -75,6 +60,7 @@ export class SignupComponent {
   setInitialValues() {
     // Example of setting initial values
     const newvalues = this.ud.profileForm
+    this.editUser = newvalues;
     if (newvalues) {
       this.signupForm.patchValue({
         _id: newvalues?._id,
@@ -97,7 +83,17 @@ export class SignupComponent {
 
   onSubmit() {
     this.loading = true;
-    const res = this.isedit ? this.auth.updateProfile(this.signupForm.value, this.selectedFile) : this.auth.signup(this.signupForm.value, this.selectedFile);
+    if (!this.selectedFile) {
+      this.loading = false;
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please select a file',
+        showConfirmButton : false
+      })
+      return 
+    }
+    const res = this.isedit ? this.auth.updateProfile(this.signupForm.value, this.selectedFile) : this.auth.signup(this.signupForm.value, this.selectedFile)
     res.subscribe({
       next: (resdata: any) => {
         this.loading = false;
@@ -113,4 +109,10 @@ export class SignupComponent {
 
   }
 
+  ngOnDestroy() {
+    this.signupForm.reset();
+    this.selectedFile = null;
+    this.selectedRole = '';
+    this.editUser = undefined;
+}
 }

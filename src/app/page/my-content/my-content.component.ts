@@ -53,6 +53,10 @@ export class MyContentComponent implements OnInit {
     })
   }
 
+  toggleDescription(post: any) {
+    post.showFullDescription = !post.showFullDescription;
+  }
+
   edit(post: Icontent) {
     this.updated = true;
     this.ud.setData(post)

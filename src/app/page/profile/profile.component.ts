@@ -15,13 +15,10 @@ export class ProfileComponent implements OnInit {
   updated: boolean = false;
 
   ngOnInit() {
-    const profile = JSON.parse(localStorage.getItem('user') as string);
-    this.imageURL = profile.profilepic;
+    this.imageURL = this.profile.profilepic;
   }
 
   edit(profile: IUser) {
-    console.log(profile);
-
     this.updated = true;
     this.ud.setprofileData(profile)
   }
